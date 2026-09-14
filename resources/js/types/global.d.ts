@@ -1,6 +1,6 @@
-import type { Auth } from '@/types/auth';
+import type { Auth, Flash } from '@/types/auth';
+import type { Router, Page, createHeadManager } from '@inertiajs/core';
 
-// Extend ImportMeta interface for Vite...
 declare module 'vite/client' {
     interface ImportMetaEnv {
         readonly VITE_APP_NAME: string;
@@ -18,6 +18,8 @@ declare module '@inertiajs/core' {
         sharedPageProps: {
             name: string;
             auth: Auth;
+            flash: Flash;
+            appearance: 'light' | 'dark' | 'system';
             sidebarOpen: boolean;
             [key: string]: unknown;
         };
